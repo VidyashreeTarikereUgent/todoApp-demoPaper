@@ -1,0 +1,10 @@
+## Introduction and related work
+{:#introduction}
+
+In recent times there are a lot of applications which are built on the basis of Solid Protocol[1]. All these social Web applications focus on keeping users data decentralized from the application themselves and give users a great liberty to be in control of their own data and who has access to it and how it is used. This data in Solid Pods are stored as RDF triples, subject, predicate and object. Each of these are represented by a URI. Using RDF triples makes it possible to query the data stored in Solid Pod. While RDF represents data in the Pod, semantics represents the meaning and interpretation of data in RDF triples, defined by ontologies. With the help of ontologies, interoperability can be achieved between Solid Pods and applications.
+
+The general exchange of data in Solid is done using the HTTP Web standards. Since data in Solid Pods are in RDF format, sparql queries can be used to query the Pods[2]. Comunica-sparql[3] is a part of Comunica[4] query engine which can be used for querying Solid Pods.
+
+With Solid Pods, users store data in their Pods in different formats and use different APIs through which pod data is available. This leads to the problem of interoperability. There is need for a new standard which doesn't use a specific API but provides with the source of truth. This helps in data exchange between user's Pods with other Solid Pods and applications. 
+
+In this demonstration we are showcasing two todo apps which are developed with two different frameworks are interoperable in the Solid ecosystem. The two apps access a single user's pod by identifying the pod with Solid-OIDC[5] and user's WebID[6]. The two apps store data in different places in the Solid Pod and yet are interoperable with the use of same ontology. 

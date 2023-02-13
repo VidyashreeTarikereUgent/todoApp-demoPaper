@@ -1,0 +1,26 @@
+---
+title: "Demonstration of interoperability between two Todo-apps in Solid ecosystem"
+---
+<header markdown="1">
+# <%= @item[:title] %>
+
+{:#authors}
+- <%= person 'John Doe', 'http://www.example.org/', 'http://www.example.org/#me' %>
+
+{:#affiliations}
+- {:#myaffiliation} Ghent University.
+
+<%= section 'abstract' %>
+
+</header>
+
+<main>
+  <!-- Add sections by specifying their file name, excluding the '.md' suffix. -->
+  <%= section 'introduction' %>
+  <%= section 'interoperabilityInSolid' %>
+  <%= section 'basicDemoWalkthrough' %>
+  <%= section 'conclusion' %>
+</main>
+
+<%= section 'references' %>
+<footer></footer>
