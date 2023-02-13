@@ -1,2 +1,0 @@
-## Related work
-{:#Related work}
