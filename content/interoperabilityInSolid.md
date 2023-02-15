@@ -1,4 +1,4 @@
-## Solid pods as Knowledge graphs
+## Interoperability in Solid
 
 Interoperibilty in Solid is the ability of multiple heterogenous Solid Pods and applications to work together to communicate with each other or to exchange data or to process data between among themselves.
 
