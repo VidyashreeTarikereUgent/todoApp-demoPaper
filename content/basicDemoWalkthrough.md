@@ -1,7 +1,25 @@
 ## Basic Demo Walkthrough
 
-In our demonstration, we have developed two separate todo applications, available through the links, one built using the React framework and the other using Vue framework, both of which are available online. Interested person to try out the apps need to have a Solid Pod and an associated WebId to authenticate themselves in the applications. The applications then authenticates the person using Solid-OIDC and lets them to a nice application UI. Here, a person can enter the todos, which are then stored in the Solid Pods. 
+Notes: (TODO: remove these in the final version1)
 
-*screenshots
+Goal of this section: Describe the capabilities of our app, ie. what we will be demonstrating live .
 
-A person can create todos in React todo application and view, update or delete the todos in the Vue todo application and vice versa. These changes are reflected in the React todo application. Both the applications are using a single ontology which facilitates in the interoperability between them. 
+list of acronyms?
+- CSS
+- RDF
+- POD: personal online data store/space
+- CRUD
+
+----
+
+![vue_demo_screenshot](../assets/screenshots/vue_demo_screenshot.png)
+
+Our demo shows how a [non-technical?] user can use either of our two separate application to manage a task-list[^4] in his or her POD. Both applications interoperate and allow basic CRUD operations -- tasks can be displayed, added, deleted, toggled and edited. These operations reflect on the underlying data and mirror in the other app [ideally we could show both apps side by side and have them automatically update when the underlying data changes.]. That means adding, editing or deleting a task in app A will also be shown in app B, as they use the same ontology and operate on the same data.
+
+The source code and hosted versions of the app are available online[^1][^2] [Note: Do we need to anonymize this?]. It is recommended to test them with a local version of the CSS [^3] [I don't like to write this -- the server is annoying to set up. Also, should we say something about the CSS/NSS/ESS logins?].
+
+[^1]: [Vue-Application](https://github.com/SolidLabResearch/solid-todo-app-vue)
+[^2]: [React-Apllication](https://github.com/SolidLabResearch/solid-todo-app-react)
+[^3]: [Community Solid Server](https://github.com/CommunitySolidServer/CommunitySolidServer)
+[^4]: colloquially called 'todolist'; this term however lead to a lot of confusion during development, as 'todo' is also commonly used to denote issues in the source code
+
