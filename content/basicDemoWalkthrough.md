@@ -14,6 +14,9 @@ list of acronyms?
 
 ![vue_demo_screenshot](../assets/screenshots/vue_demo_screenshot.png)
 
+{:.comment data-author="RT"}
+Screenshot doesn't work for me.
+
 _[TODO: image description]_
 
 Our demo shows how a _[non-technical?]_ user can use either of our two separate application to manage a task-list[^4] in his or her POD _[TODO: Link to image]_. Both applications interoperate and allow basic CRUD operations -- tasks can be displayed, added, deleted, toggled and edited. These operations reflect on the underlying data and mirror in the other app _[ideally we could show both apps side by side and have them automatically update when the underlying data changes.]_. That means adding, editing or deleting a task in app A will also be shown in app B, and vice-versa, as they use the same ontology and operate on the same data.
