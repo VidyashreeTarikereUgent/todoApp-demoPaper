@@ -11,18 +11,15 @@ The todo apps authenticate users using their WebID and uses [Web Access Control(
 For reading data from a Solid Pod in our todo application comunica is used. A new comunica query engine should be created which is used to execute all the SPARQL queries. SPARQL SELECT queries can be used to read data from the Pod. 
 
 <figure id="select-query" class="listing">
-
-const bindingsStream = await myEngine.queryBindings(`
-        SELECT ?id ?todo WHERE {
-         ?id <http://example.org/example/todo> ?todo .
-        }`, context
+    SELECT &nbsp; ?id &nbsp; ?todo &nbsp; WHERE &nbsp; { <br>
+    &emsp; &emsp; &emsp; <http://example.org/example/todo> &nbsp; ?todo &nbsp; . <br>
+        } 
 )
+
 <figcaption markdown="block">
-SPARQL SELECT query which is executed by Comunica query engine, myEngine, and query context holding the WebID of the user. 
+SPARQL SELECT query
 </figcaption>
 </figure>
-
-Listing 1.1:  SPARQL SELECT query which is executed by Comunica query engine, myEngine, and query context holding the WebID of the user. 
 
 For writing data to the Solid Pod in our todo application, the application has a fixed location where the todo application's data will be stored. If there isn't already a resource for the todo apps data in the pod, it will be created using SPARQL INSERT at the location set out by the todo application. If a task needs to be modified, i.e., if a specific todo wants to be marked as done or update todo details, patching of resources is carried out using SPARQL DELETE and SPARQL INSERT. 
 
