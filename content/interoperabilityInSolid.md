@@ -10,11 +10,17 @@ The todo apps authenticate users using their WebID and uses [Web Access Control(
 
 For reading data from a Solid Pod in our todo application comunica is used. A new comunica query engine should be created which is used to execute all the SPARQL queries. SPARQL SELECT queries can be used to read data from the Pod. 
 
-```const bindingsStream = await myEngine.queryBindings(`
+<figure id="select-query" class="listing">
+
+const bindingsStream = await myEngine.queryBindings(`
         SELECT ?id ?todo WHERE {
          ?id <http://example.org/example/todo> ?todo .
         }`, context
-    )```
+)
+<figcaption markdown="block">
+SPARQL SELECT query which is executed by Comunica query engine, myEngine, and query context holding the WebID of the user. 
+</figcaption>
+</figure>
 
 Listing 1.1:  SPARQL SELECT query which is executed by Comunica query engine, myEngine, and query context holding the WebID of the user. 
 
