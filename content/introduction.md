@@ -23,7 +23,7 @@ similar to directories in document-oriented design models. These resources in LD
 Every Solid Pod user can be identified using a URI called [WebID](cite:cites sambra2014webid). The users can authenticate themselves via [Solid OIDC](cite:cites debackere2022policy) for reading and writing of resources.
 
 {:.comment data-author="RT"}
-The access control part is missing here (ACL/ACP).
+The access control part is missing here (WAC/ACP).
 
 The WebID document can contain basic information of the user, such as the name, phone number, etc., and links to the root LDP container.  
 
