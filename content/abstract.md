@@ -1,8 +1,24 @@
 ## Abstract
 
-Solid ecosystem and Solid Pods are of great interest as they promise to give users the freedom to choose where and how their data is stored on the Web. 
-Different applications built for performing same tasks are not interoperable if they have different vocabularies.
-In this demo, we show how two todo applications which are built using different frameworks are interoperable with the data in the Pod. 
-These two todo applications share a same vocabulary and users use their WebIds to authenticate with the apps for creating resources, modifying the data and also deleting them.
-These applications are query-driven applications and relieve app developers from being aware of where the data is stored in the decentralized Pod environment. 
-We will present an UI which does all the mentioned tasks, store todo app data in the Solid Pod and give users the freedom to be in control of their data.
+<!-- Context      -->
+The Solid ecosystem is of great interest as it promises to give users the ability to fully control their data,
+and to give them the freedom to choose where and how their data is stored. 
+The decoupling of data and application in Solid enables multiple applications to act upon the same data,
+giving the users freedom to choose which applications to use over their data.
+However, interoperability does not come out of the box by default with Solid at the moment,
+as their are difficulties pertaining to data storage location and the availability of different vocabularies.
+<!-- Need         -->
+Hence, we need a better understanding of how to achieve interoperable Solid apps.
+<!-- Task         -->
+To investigate the requirements and open challenges of this interoperability,
+we designed two Solid applications that are built using different frameworks that can operate on the same data of a user.
+Both applications manage personal todo lists.
+<!-- Object       -->
+In this paper, we explain the details of these applications, and how they achieve interoperability through a query-driven implementation.
+<!-- Findings     -->
+<!-- Conclusion   -->
+We show that such a query-driven implementation is able to cope with different user preferences of storage locations in pods,
+but that more research is needed to handle writing of data to pods,
+and how to handle heterogeneous data models through schema alignment.
+<!-- Perspectives -->
+As such, our work provides a baseline use case onto which further interoperability research can be investigated.
