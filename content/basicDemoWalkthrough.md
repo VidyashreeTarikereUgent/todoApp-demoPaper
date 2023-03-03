@@ -20,7 +20,7 @@ Finally, the todos can be deleted which removes all the associated information f
 <img src="img/vue_app.png" >
 
 <figcaption markdown="block">
-Screenshots of React App and Vue App
+Screenshots of todo React App and todo Vue App
 </figcaption>
 </figure>
 
