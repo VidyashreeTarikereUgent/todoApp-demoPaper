@@ -2,11 +2,12 @@
 
 Interoperibilty in Solid is the ability of multiple heterogenous Solid Pods and applications to work together to communicate with each other, to exchange data and to process data among themselves.
 
-At present, the applications have hardcoded locations in the Pod for storing the app data on the other hand users can organise their Pods in various ways. 
-By adopting to declarative queries and link traversal query processing in applications, the users can organise data according to their will and application developers need not have to know where the data is stored in the Pod.   
-Thus, any changes to the query engine will have no effect on the application's [declartive query](cite:cites taelman2023evaluation). 
-Discovery of data within the Pod is achieved using [link traversal](cite:cites hartig2013overview) initialised with a [seed URI](cite:cites hartig2011zero), WebID document. All resources within the Pod are discovered by following ldp:contains links in the root document 
+At present, the applications have hardcoded locations in the Pod for storing the app data while it should be the users choice to organise their Pods. 
+By adopting to declarative queries and link traversal query processing in applications, the users can organise data according to their needs and application developers do not need to know where the data is stored in the Pod.   
+Thus, any changes to the query engine will have no effect on the application's declartive query. 
+Discovery of data within the Pod is achieved using [link traversal](cite:cites taelman2023evaluation) initialised with a [seed URI](cite:cites hartig2011zero), WebID document. All resources within the Pod are discovered by following ldp:contains links in the root document 
 which is found by the pim:storage predicate related to the WebID document.
+
 
 Ontologies give semantics to the data. 
 One way to achieve interoperability for Solid applications is to follow a same ontology which will give same structure to the application data and enables interoperability. 

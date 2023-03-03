@@ -4,7 +4,7 @@
 The Solid ecosystem is of great interest as it promises to give users the ability to fully control their data,
 and to give them the freedom to choose where and how their data is stored. 
 The decoupling of data and application in Solid enables multiple applications to act upon the same data,
-giving the users freedom to choose which applications to use over their data.
+giving the users freedom to choose which applications use their data.
 However, interoperability does not come out of the box by default with Solid at the moment,
 as their are difficulties pertaining to data storage location and the availability of different vocabularies.
 <!-- Need         -->
@@ -21,4 +21,4 @@ We show that such a query-driven implementation is able to cope with different u
 but that more research is needed to handle writing of data to pods,
 and how to handle heterogeneous data models through schema alignment.
 <!-- Perspectives -->
-As such, our work provides a baseline use case onto which further interoperability research can be investigated.
+As such, our work provides a baseline use case to further interoperability research.
