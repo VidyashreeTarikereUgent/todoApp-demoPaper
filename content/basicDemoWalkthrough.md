@@ -14,13 +14,24 @@ The todos can be toggled as pending or completed, which will be updated in the P
 Using Comunica with SPARQL SELECT queries, the stored todos are read from the Pod and displayed in the applications. 
 Finally, the todos can be deleted which removes all the associated information from the Pod. This will be reflected in the apps as well.
 
-<figure id="figure-main">
-<img src="img/react_app.png" >
+<figure id="figure-demo-walkthrough">
 
-<img src="img/vue_app.png" >
+<figure id="figure-vue" class="subfigure">
+<img src="img/react_app.png">
+<figcaption markdown="block">
+React app
+</figcaption>
+</figure>
+
+<figure id="figure-react" class="subfigure">
+<img src="img/vue_app.png">
+<figcaption markdown="block">
+Vue app
+</figcaption>
+</figure>
 
 <figcaption markdown="block">
-Screenshots of todo React App and todo Vue App
+The two interoperable applications
 </figcaption>
 </figure>
 
