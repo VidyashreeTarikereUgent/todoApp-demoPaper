@@ -17,8 +17,6 @@ The todo apps authenticate users using their WebID
 and uses [Web Access Control(WAC)](cite:cites spec:wac) to regulate access control in the Pod. 
 The todo apps navigate to the root document with the WebID and traverse through the LDP containers and the resources. 
 The link traversal based query engine will not assume the location of the app data and traverses the entire Pod after matching the query. 
-{:.comment data-author="JST"}
-Why is this good/bad/necessary?
 
 For all operations in the Solid Pod query engine, [comunica](cite:cites taelman2018comunica), is used. 
 Comunica is a modular meta query engine which can do federated query processing over Solid Pods. 
