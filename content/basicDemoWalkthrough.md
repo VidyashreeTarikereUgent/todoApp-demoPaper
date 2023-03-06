@@ -3,7 +3,7 @@
 The React app and Vue app are todo applications which manage and store user's todos in their Solid Pods. 
 The application asks user to authenticate access to their Pods with their WebIDs 
 using the Login button which uses the [Solid OIDC](cite:cites spec:oidc) protocol.
-The apps display the name of the user after logging in, if it is found in their WebID profile document else it will simply display the WebID of the user. 
+After logging in, if the name of the user is found in their WebID profile it will be shown, else it will simply display the WebID of the user. 
 
 Once a user is logged in, the login state persists even after a refresh. 
 
@@ -37,5 +37,5 @@ The two interoperable applications
 
 A user can login to a todo app, React or Vue framework based, and add a todo in the textbox available
 and this can be viewed in the other app as seen in Figure 1.
-All the previously mentioned operations, adding, modifying, toggling and deleting a todo in one app
+All the previously mentioned operations --adding, modifying, toggling and deleting a todo in one app--
 will be reflected in the other app.   
