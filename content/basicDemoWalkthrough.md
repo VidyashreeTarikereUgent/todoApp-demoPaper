@@ -13,20 +13,17 @@ The todos can be toggled as pending or completed, which will be updated in the P
 Using SPARQL SELECT queries, the stored todos are read from the Pod and displayed in the applications. 
 Todo's can be deleted via SPARQL DELETE queries, which removes all the associated information from the Pod.
 <figure id="figure-vue" >
-<img src="img/vue_app.png" style="height: 225px" />
+<img src="img/vue_app.png" />
 <figcaption markdown="block">
 Vue-based Todo app
 </figcaption>
 </figure>
 <figure id="figure-react" >
-<img src="img/react_app.png" style="height: 425px"/>
+<img src="img/react_app.png" />
 <figcaption markdown="block">
 React-based Todo app
 </figcaption>
 </figure>
-
-{:.comment data-author="RT"}
-Something goes wrong with the scaling of the figures in the HTML view of the paper.
 
 [](#figure-vue) and [](#figure-react) show examples of the user interface of the Vue and React-based Todo apps.
 In these examples, the same user is logged in, showing the same Todo lists.
