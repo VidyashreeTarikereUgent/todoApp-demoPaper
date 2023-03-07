@@ -4,7 +4,6 @@
 An increasing number of decentralized Solid Web applications are being built according to the [Solid Protocol](cite:cites sambra2016solid). 
 In Solid, the applications and data are decoupled 
 which give users great freedom to be in control of data and who has access to it and how it is used. 
-
 Solid Pods can be considered _personal [Knowledge Graphs](cite:cites hogan2021knowledge)_,
 as they consist of [Linked Data documents](cite:cites linkeddata) containing [Resource Description Framework(RDF) triples](cite:cites spec:rdf). 
 These resources are interconnected through RDF triples forming a Knowledge Graph in Solid Pods. 

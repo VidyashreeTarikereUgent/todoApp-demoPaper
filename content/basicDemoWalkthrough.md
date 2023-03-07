@@ -13,29 +13,21 @@ The stored todos can be modified, then an additional date of modification is add
 The todos can be toggled as pending or completed, which will be updated in the Pod. 
 Using Comunica with SPARQL SELECT queries, the stored todos are read from the Pod and displayed in the applications. 
 Finally, the todos can be deleted which removes all the associated information from the Pod. This will be reflected in the apps as well.
-
-<figure id="figure-demo-walkthrough">
-
-<figure id="figure-vue" class="subfigure">
-<img src="img/react_app.png">
+<figure id="figure-vue" >
+<img src="img/vue_app.png" style="height: 225px" />
+<figcaption markdown="block">
+Vue app
+</figcaption>
+</figure>
+<figure id="figure-react" >
+<img src="img/react_app.png" style="height: 425px"/>
 <figcaption markdown="block">
 React app
 </figcaption>
 </figure>
 
-<figure id="figure-react" class="subfigure">
-<img src="img/vue_app.png">
-<figcaption markdown="block">
-Vue app
-</figcaption>
-</figure>
-
-<figcaption markdown="block">
-The two interoperable applications
-</figcaption>
-</figure>
 
 A user can login to a todo app, React or Vue framework based, and add a todo in the textbox available
-and this can be viewed in the other app as seen in Figure 1.
+and this can be viewed in the other app as seen in Figure 1 and Figure 2.
 All the previously mentioned operations --adding, modifying, toggling and deleting a todo in one app--
 will be reflected in the other app.   
