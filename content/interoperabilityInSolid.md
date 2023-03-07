@@ -1,27 +1,41 @@
 ## Interoperability in Solid
 
-Interoperibilty in Solid is the ability of multiple heterogenous Solid Pods and applications to work together to communicate with each other, to exchange data and to process data among themselves.
+Interoperability in Solid is the ability of multiple heterogenous Solid Pods and applications to work together,
+by communicating with each other, by exchanging data, and by processing data among themselves.
 
-At present, the applications have hardcoded locations in the Pod for storing the app data while it should be the users choice to organise their Pods. 
-By adopting to declarative queries and link traversal query processing in applications, the users can organise data according to their needs and application developers do not need to know where the data is stored in the Pod.   
-Thus, any changes to the query engine will have no effect on the application's declartive query. 
-Discovery of data within the Pod is achieved using [link traversal](cite:cites taelman2023evaluation) initialised with a [seed URI](cite:cites hartig2011zero) WebID document. All resources within the Pod are discovered by following _ldp:contains_ links in the root document 
-which is found by the _pim:storage_ predicate related to the WebID document.
+{:.comment data-author="RT"}
+Can we add some subsections in here for the different topics?
+Like querying, ontologies, ...
 
+At present, most Solid applications assume hardcoded locations in Pods for storing data,
+which is incompatible with the idea of Solid that every user should have the choice to organise their Pod as they see fit. 
+Furthermore, not all Solid applications may make use of the same hardcoded locations.
+One way of making Solid applications independent of the precise location at which data is stored inside a Pod,
+is by building applications on top of *declarative queries*, such as SPARQL queries.
+These SPARQL queries can then be evaluated by query engines that are able to find data in Solid Pods,
+for example by making use of [Link Traversal Query Processing techniques dedicated to Solid Pods](cite:cites taelman2023evaluation).
+This gives users the freedom to choose where and how they store their data,
+without application developers needing to be aware of this heterogeneity across Pods.
 
-Ontologies give semantics to the data. 
+In RDF, ontologies are used to give semantics to the data. 
 One way to achieve interoperability for Solid applications is to follow the same ontology, as this will give the same structure to the application data. 
 Therefore, both our todo apps use the same ontology. 
 
-The todo apps authenticate users using their WebID 
-and uses [Web Access Control(WAC)](cite:cites spec:wac) to regulate access control in the Pod. 
+Our todo apps follow the Solid protocol, which authenticates users using their WebID 
+and uses [Web Access Control (WAC)](cite:cites spec:wac) to regulate access control in the Pod. 
 The todo apps navigate to the root document with the WebID and traverse through the LDP containers and the resources. 
 The link traversal based query engine will not assume the location of the app data and traverses the entire Pod after matching the query. 
 
-For all operations in the Solid Pod query engine, [comunica](cite:cites taelman2018comunica), is used. 
-Comunica is a modular meta query engine which can do federated query processing over Solid Pods. 
-A new comunica query engine should be created which is used to execute all the SPARQL queries. 
-SPARQL SELECT queries can be used to read data from the Pod. 
+{:.comment data-author="RT"}
+I don't think we need the section above, as it's mainly a repetition from what has been said before.
+
+Both todo apps are query-driven, which means that all reads and writes to and from the pod are done via a query engine.
+This allows the application developer to be agnostic about the precise storage location,
+as this can be derived automatically by the query engine.
+Concretely, we make use of the [Comunica SPARQL query engine](cite:cites taelman2018comunica),
+as it has been implemented in JavaScript, and can therefore run in a user-facing browser application.
+Furthermore, Comunica allows users to log in with their WebID, and is able to [traverse over Solid Pods](cite:cites taelman2023evaluation).
+For example, [](#select-query) shows a query that ... from a Pod, independent of the precise storage location.
 
 <figure id="select-query" class="listing">
     SELECT &nbsp; ?id &nbsp; ?todo &nbsp; WHERE &nbsp; { <br>
@@ -34,9 +48,15 @@ SPARQL SELECT query
 </figcaption>
 </figure>
 
-For our todo applications, writing data to the Solid Pod has a fixed location where the apps data will be stored. 
-This is a limitation of our applications as they store data in the Pod in a fixed location rather than chosen by the user. 
-If there isn't already a resource for the todo apps data in the pod, 
-it will be created using SPARQL INSERT at the location set out by the todo application. 
-If a task needs to be modified, i.e., if a specific todo wants to be marked as done or update todo details, patching of resources is carried out using SPARQL DELETE and SPARQL INSERT. 
+{:.comment data-author="RT"}
+The query above is invalid syntactically.
+Also, can we have a more interesting query? (more than just one triple pattern.)
+Also, in the caption, describe what the query does exactly.
+
+One of the current limitation of our apps, is that we write data to a fixed location in the pod, rather than being user-defined.
+Like reading data from Pods, writing data to Pods is also abstracted using SPARQL queries.
+More specifically, we make use of SPARQL INSERT and DELETE queries,
+which can be resolved by Comunica,
+which in its turn takes care of creating new resources if they don't exist yet,
+or modifying them if they already exist.
 
