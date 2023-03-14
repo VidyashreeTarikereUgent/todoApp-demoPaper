@@ -1,8 +1,8 @@
 .DS_Store
 *.pdf
-
+.vscode/
 .sass-cache
-tmp
-output
+tmp/
+output/
 *.log
 *.diff

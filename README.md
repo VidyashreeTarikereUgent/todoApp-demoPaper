@@ -1,4 +1,4 @@
-# My Scholarly Article
+# Interoperability Demonstration of Solid To-do Applications
 
 ## Development mode
 ```
