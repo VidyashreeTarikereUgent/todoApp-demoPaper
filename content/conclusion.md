@@ -1,9 +1,9 @@
 ## Conclusion
 
-In this demo, we demonstrated how different interoperable applications can be built for the Solid ecosystem using the same ontology and a query-driven implementation.
-The two apps must know the hardcoded write location to be interoperate.
-The source code of [React-based app](https://github.com/SolidLabResearch/solid-todo-app-react){:.mandatory} and [Vue-based app](https://github.com/SolidLabResearch/solid-todo-app-vue){:.mandatory} are publicly available on GitHub.
-In future work, we consider investigating more collaborative operations, such as assigning others to to-dos.
-Furthermore, investigating schema alignment across apps using different ontologies is another important venue for future work.
-
-<span class="comment" data-author="RV">The conclusion is too basic; it should be about how interop always requires a degree of prior agreement, but that Solid tries to minimize that. This demo already minimizes location-dependence for read (at what cost? mention), but future work is write-independence (suggestions for how?) and ontology-independence (how?).</span>
+While Solid itself offers the foundations for separating data from applications, more work is still needed in making that reality in practice.
+We have demonstrated the use of SPARQL queries to address the challenges in storage location interoperability between Solid applications,
+at the expense of having to potentially scan the entire pod in search of relevant data.
+Our approach still results in applications having to decide where to write their data,
+prompting for some form of abstraction in that regard, as well, perhaps on a query engine library level or within the pod itself as it ingests data.
+The challenges around ontology interoperability through schema alignment likewise remain to be addressed in future work,
+perhaps also on a query engine library level, making any solutions reusable by multiple applications.
