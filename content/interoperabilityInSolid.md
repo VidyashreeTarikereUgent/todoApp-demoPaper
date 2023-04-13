@@ -1,52 +1,45 @@
-## Query-driven application code
+## Query-Driven Applications
 
-Interoperability in Solid is the ability of multiple heterogenous Solid Pods and applications to work together,
-by communicating with each other, by exchanging data, and by processing data among themselves.
+At present, numerous Solid applications make assumptions about data locations in pods,
+which is incompatible with the idea of Solid that every user should have the power to organise their Pod as they see fit.
+Furthermore, not all Solid applications may assume the same locations for data.
+This present an interoperability challenge, which we have tackled through the use of *declarative queries* as a data access abstraction layer,
+allowing application developers to make use of pods with varying data locations,
+while maintaining the ability of users to freely organise their pods.
 
-At present, most Solid applications assume hardcoded locations in Pods for storing data,
-which is incompatible with the idea of Solid that every user should have the choice to organise their Pod as they see fit. 
-Furthermore, not all Solid applications may make use of the same hardcoded locations.
-One way of making Solid applications independent of the precise location at which data is stored inside a Pod,
-is by building applications on top of *declarative queries*, such as SPARQL queries.
-These SPARQL queries can then be evaluated by query engines that are able to find data in Solid Pods,
-for example by making use of [Link Traversal Query Processing techniques dedicated to Solid Pods](cite:cites taelman2023evaluation).
-This gives users the freedom to choose where and how they store their data,
-without application developers needing to be aware of this heterogeneity across Pods.
+Solid Pods can be considered [_personal knowledge graphs_](cite:cites hogan2021knowledge),
+consisting of a combination of interlinked LDP containers, Linked Data documents and non-RDF data.
+The resources in LDP containers can be read with HTTP `GET` requests to their URIs.
+This characteristic allows the use of [Link Traversal Query Processing (LTQP)](cite:cites hartig2011zero,taelman2023evaluation)
+to execute declarative SPARQL queries over Solid pods,
+which in turn helps abstract away the location of data within a pod for read operations.
+Furthermore, as resources in LDP containers can be created or modified using HTTP `POST`, `PUT`, and `PATCH` requests,
+queries can also be used to abstract modifications to data contained within a Solid pod.
 
-<del class="comment" data-author="RV">In RDF, ontologies are used to give semantics to the data. </del>
-<span class="comment" data-author="RV">That is known already by the target audience.</span>
-<del class="comment" data-author="RV">One way to achieve interoperability for Solid applications is to follow the same ontology, as this will give the same structure to the application data. 
-Therefore, both our to-do apps use the same ontology.</del>
-<span class="comment" data-author="RV">That's a bit too straightforward: of course two apps using the same ontology will have interoperable data models. We can perhaps make the more general point here: how strong does the prior agreement need to be? Do they need to use exactly the same data model and exactly the same locations? Well, we'll look into that second question by keeping the first constant.</span>
-<span class="comment" data-author="RV">In that sense, the title and abstract of the paper might need to be adapted to location-independence.</span>
-
-Both to-do apps are query-driven,
-meaning that all read and write operations are expressed using declarative queries on the data level,
-such that the application developer can be agnostic about the storage location.
-An application-independent query engine then needs to derive the storage location automatically;
-we make use of the [Comunica SPARQL query engine](cite:cites taelman2018comunica).
-Comunica allows WebID-authenticated fetch operations, and is able to [traverse over Solid Pods](cite:cites taelman2023evaluation).
-For example, [](#select-query) shows a SELECT query that returns all to-do triples from a Pod, independent of the precise storage location.
+We have taken advantage of this to achieve interoperability between two applications, by making both applications query-driven.
+All read and write operations are expressed using declarative SPARQL queries with `INSERT` and `DELETE`.
+We chose [Comunica](cite:cites taelman2018comunica), an application-independent query engine library to execute these queries,
+as it has been previously used [within Solid](cite:cites taelman2023evaluation),
+and is able to translate our queries into operations on the Solid pod, by creating or updating resources.
+[](#select-query) illustrates an example SELECT query to obtain tasks within a to-do application, regardless of the exact location within a pod.
+However, writing the data is done to a fixed location in a pod, rather than being user-defined.
 
 <figure id="select-query" class="listing">
 <pre><code>PREFIX todo: <http://example.org/todolist/>
 
-SELECT * WHERE {
-    ?id a todo:Task ;
-        todo:title ?title ;
-        todo:status ?status ;
-        todo:dateCreated ?dateCreated .
+SELECT ?id ?title ?status ?dateCreated WHERE {
+    ?id a todo:Task;
+        todo:title ?title;
+        todo:status ?status;
+        todo:dateCreated ?dateCreated.
 }</code></pre>
 
 <figcaption markdown="block">
-SPARQL SELECT query which selects <span class="rephrase" data-author="RV">all triples matching the predicates</span> in the Pod.
+Example query to select tasks with a title, status and creation date.
 </figcaption>
 </figure>
 
-One of the current limitations of our apps, is that we write data to a fixed location in the pod, rather than being user-defined.
-Like reading data from Pods, writing data to Pods is also abstracted using SPARQL queries.
-More specifically, we make use of SPARQL INSERT and DELETE queries,
-which can be resolved by Comunica,
-which in its turn takes care of creating new resources if they don't exist yet,
-or modifying them if they already exist.
-
+Beyond the data location, the ontologies used for the data should also be interoperable.
+In practice, this could be realised through the use of the same ontology, or through the mapping of different ontologies into each other.
+Within the scope of this demonstration, we have chosen to use the same ontology to make the two applications interoperable,
+to help us focus on the challenge of data storage itself.

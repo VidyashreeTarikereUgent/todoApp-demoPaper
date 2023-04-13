@@ -1,0 +1,9 @@
+.sidebyside {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: end;
+}
+.sidebyside figure {
+  width: unset;
+}
