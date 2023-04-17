@@ -1,7 +1,7 @@
 ## Abstract
 <!-- Context      -->
 The Solid ecosystem promises to give users the ability to fully control their data,
-and the freedom to choose where and how that data is stored. 
+and the freedom to choose where and how that data is stored.
 The decoupling of data and applications in Solid enables multiple applications to act upon the same data,
 offering users the freedom to choose any application they wish to use on top of their data.
 However, application interoperability in Solid is not guaranteed at the moment,
